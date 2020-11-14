@@ -1,0 +1,25 @@
+//common files
+@import "common/variables";
+@import "common/fonts";
+@import "common/mixins";
+@import "common/reset";
+
+
+// sections
+@import "sections/home";
+@import "sections/about";
+@import "sections/doctor-search";
+@import "sections/doctor-detail";
+@import "sections/department-detail";
+@import "sections/appointment";
+@import "sections/shop";
+@import "sections/cart";
+@import "sections/contact";
+@import "sections/404";
+@import "sections/login";
+@import "sections/register";
+@import "sections/animated";
+@import "sections/bac-to-top";
+@import "sections/loader";
+@import "sections/header";
+@import "sections/footer";
