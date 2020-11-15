@@ -1,0 +1,99 @@
+﻿@model DoctorSearchViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <!-- Banner section start -->
+    <partial name="_Banner" model="Model.BannerViewModel" />
+    <!-- Banner section end -->
+
+    <!-- Search section start -->
+    <section id="search">
+        <div class="container-fluid">
+            <div class="search">
+                <div class="team-search">
+                    <div class="search-element-widjet">
+                        <div class="search-element">
+                            <div class="team-search-box">
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4">
+                                        <div class="search-item">
+                                            <div class="form-group">
+                                                <select name="select-doctor" id="select-doctor">
+                                                    <option value="0" selected disabled>Select Doctor Category</option>
+                                                    @foreach (var item in ViewBag.Departments)
+                                                    {
+                                                        <option value="@item.Id">@item.Name</option>
+                                                    }
+                                                </select>
+                                                <span class="search-select">
+                                                    <span class="selection">
+                                                        <span class="doctor-select">Select Doctor Category</span>
+                                                        <span class="select-arrow">
+                                                            <b></b>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="doctor-name form-controll" type="text" name="doctor-name" placeholder="Type Doctor Name Here ...">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-2">
+                                        <div class="form-group">
+                                            <input class="item-btn" type="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doctor-items">
+                                @foreach (var item in Model.Doctors)
+                                {
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="doctor-item wow fadeInUp" data-wow-duration="3s">
+                                            <div class="team-box">
+                                                <div class="item-img">
+                                                    <img src="~/uploads/@item.Photo" class="img-fluid" alt="">
+                                                    <ul class="item-icon">
+                                                        <li>
+                                                            <a href="#"><i class="fas fa-plus"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="item-content">
+                                                    <h3 class="item-title">
+                                                        <a href="#">@item.FullName</a>
+                                                    </h3>
+                                                    <p>@item.Department.Name</p>
+                                                </div>
+                                                <div class="item-content-text">
+                                                    <p>@item.AboutMe</p>
+                                                </div>
+                                                <div class="item-schedule">
+                                                    <div class="btn-holder">
+                                                        <a href="#">Book an Appointment</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                           
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Search section end -->
+
+    <!-- Need-doctor section start -->
+    <partial name="_NeedDoctor" />
+    <!-- Need-doctor section end -->
+</main>
+
