@@ -16,39 +16,52 @@
                     <div class="search-element-widjet">
                         <div class="search-element">
                             <div class="team-search-box">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-4">
-                                        <div class="search-item">
-                                            <div class="form-group">
-                                                <select name="select-doctor" id="select-doctor">
-                                                    <option value="0" selected disabled>Select Doctor Category</option>
-                                                    @foreach (var item in ViewBag.Departments)
-                                                    {
-                                                        <option value="@item.Id">@item.Name</option>
-                                                    }
-                                                </select>
-                                                <span class="search-select">
-                                                    <span class="selection">
-                                                        <span class="doctor-select">Select Doctor Category</span>
-                                                        <span class="select-arrow">
-                                                            <b></b>
+                                <form asp-action="Index" method="get">
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-sm-4">
+                                            <div class="search-item">
+                                                <div class="form-group">
+                                                    <span class="search-select">
+                                                        <span class="selection">
+                                                            <span id="label-name" class="doctor-select">Select Doctor Category</span>
+                                                            <span class="select-arrow">
+                                                                <i class="fas fa-angle-down"></i>
+                                                            </span>
+                                                        </span>
+                                                        <span id="menu" class="search-result">
+
+                                                            <select name="departmentId" id="select-doctor">
+                                                                <option id="select-option" value="0"></option>
+
+                                                            </select>
+                                                            <ul>
+                                                                <li id="label" value="0">Select All Doctors</li>
+                                                               @foreach (var item in ViewBag.Departments)
+                                                                {
+                                                                    <li value="@item.Department.Id" class="link">@item.Department.Name</li>
+                                                                }
+
+                                                            </ul>
+
                                                         </span>
                                                     </span>
-                                                </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="form-group">
-                                            <input class="doctor-name form-controll" type="text" name="doctor-name" placeholder="Type Doctor Name Here ...">
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="doctor-name form-controll" type="text" id="name" name="name" placeholder="Type Doctor Name Here ...">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2">
-                                        <div class="form-group">
-                                            <input class="item-btn" type="submit" value="Search">
+                                        <div class="col-lg-2 col-sm-2">
+                                            <div class="form-group">
+                                                <input id="input" class="item-btn" type="submit" value="Search">
+                                            </div>
                                         </div>
+
                                     </div>
-                                </div>
+                                </form>
                             </div>
                             <div class="doctor-items">
                                 @foreach (var item in Model.Doctors)
@@ -94,6 +107,33 @@
 
     <!-- Need-doctor section start -->
     <partial name="_NeedDoctor" />
-    <!-- Need-doctor section end -->
+
 </main>
 
+@section Scripts{ 
+<script>
+    var link = document.querySelectorAll(".link");
+    var select = document.getElementById("select-doctor");
+    var option = document.getElementById("select-option");
+    var menu = document.getElementById("menu")
+    var buton = document.getElementById("input");
+    var label = document.getElementById("label-name");
+    var li = document.getElementById("label");
+    
+    for (let item of link) {
+        item.addEventListener("click", function (e) {
+            e.preventDefault();
+            option.value = item.value;
+            label.innerHTML = item.innerHTML;
+        })
+    }
+
+    li.addEventListener("click", function (e) {
+        e.preventDefault();
+        label.innerHTML = this.innerHTML;
+        option.value = this.value;
+    })
+
+
+</script>
+}

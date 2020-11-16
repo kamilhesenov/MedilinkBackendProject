@@ -3372,7 +3372,7 @@ li {
 #search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .selection .select-arrow {
   position: absolute;
   background-color: #396CF0;
-  top: 50%;
+  top: 55%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   background-image: none;
@@ -3385,20 +3385,60 @@ li {
   border-left: 1px solid #aaa;
 }
 
-#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .selection .select-arrow b {
-  border-top-color: white;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  border-style: solid;
-  border-width: 5px 4px 0 4px;
-  height: 0;
-  left: 50%;
-  margin-left: -4px;
-  margin-top: -2px;
+#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .selection .select-arrow i {
   position: absolute;
-  top: 50%;
-  width: 0;
+  color: #ffffff;
+  font-size: 15px;
+  top: 30%;
+  left: 35%;
+}
+
+#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .search-result {
+  width: auto;
+  min-width: 350px;
+  position: absolute;
+  border-color: #eceff0 !important;
+  background-color: #fff;
+  border: 1px solid transparent;
+  left: 0;
+  z-index: 2;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  margin-left: 10px;
+  margin-top: 5px;
+  display: none;
+}
+
+#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .search-result ul {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .search-result ul li {
+  font-size: 16px;
+  color: #111111;
+  cursor: pointer;
+  padding: 6px;
+  line-height: 26px;
+  font-weight: 400;
+  font-style: normal;
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+}
+
+#search .search .team-search .search-element-widjet .search-element .team-search-box .search-item .form-group .search-select .search-result ul li:hover {
+  background-color: #396CF0;
+  color: #ffffff;
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
 }
 
 #search .search .team-search .search-element-widjet .search-element .team-search-box .form-group {

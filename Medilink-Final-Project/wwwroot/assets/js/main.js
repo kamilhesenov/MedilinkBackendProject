@@ -142,13 +142,13 @@ $(document).ready(function (){
    if($("#navbar").length){
     $(window).scroll(function (e) { 
       e.preventDefault();
-     let scroll = $(window).scrollTop();
+      let scroll = $(window).scrollTop();
       if(scroll > 100){
         $("#navbar").addClass("show");
       }
-     else{
-       $("#navbar").removeClass("show");
-     }
+      else{
+        $("#navbar").removeClass("show");
+      }
     });
    }
 
@@ -166,6 +166,13 @@ $(document).ready(function (){
   });
  }
 
+ //  Doctor-Search Select
+
+ $(".search-select").click(function(e){
+    e.preventDefault();
+  $(".search-result").slideToggle();
+  $(".select-arrow i").toggleClass("fa-angle-up");
+ })
  
 })
 
