@@ -1,4 +1,4 @@
-﻿@model AboutViewModel
+﻿@model DepartmentPaginationViewModel
 @{
     ViewData["Title"] = "_Banner";
 }
@@ -26,11 +26,11 @@
                             <div class="item-img">
                                 <img src="~/uploads/@item.Photo" alt="">
                                 <div class="item-btn">
-                                    <a href="#">Detail<i class="fas fa-angle-right"></i></a>
+                                    <a asp-controller="DepartmentDetail" asp-action="Index" asp-route-id="@item.Id">Detail<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h3><a href="#">@item.Name</a></h3>
+                                <h3><a asp-controller="DepartmentDetail" asp-action="Index" asp-route-id="@item.Id">@item.Name</a></h3>
                                 <ul class="department-info">
                                     <li>
                                         <i class="flaticon-doctor"></i>
@@ -49,11 +49,11 @@
                                     <div class="item-img">
                                         <img src="~/uploads/@item.Photo" alt="">
                                         <div class="item-btn">
-                                            <a href="#">Detail<i class="fas fa-angle-right"></i></a>
+                                            <a asp-controller="DepartmentDetail" asp-action="Index" asp-route-id="@item.Id">Detail<i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="item-content">
-                                        <h3><a href="#">@item.Name</a></h3>
+                                        <h3><a asp-controller="DepartmentDetail" asp-action="Index" asp-route-id="@item.Id">@item.Name</a></h3>
                                         <ul class="department-info">
                                             <li>
                                                 <i class="flaticon-doctor"></i>

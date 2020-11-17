@@ -23,7 +23,11 @@ namespace Medilink_Final_Project.Controllers
             var pagingData = await PagingList.CreateAsync(items, pageSize, page);
             AboutViewModel model = new AboutViewModel
             {
-                PagingList = pagingData,
+                
+                DepartmentPaginationViewModel = new DepartmentPaginationViewModel
+                {
+                    PagingList = pagingData
+                },
                 Labaratory = _context.Labaratories.FirstOrDefault(),
                 HomeCounters = _context.HomeCounters.ToList(),
                 AboutChooseUs = _context.AboutChooseUs.FirstOrDefault(),
@@ -37,5 +41,7 @@ namespace Medilink_Final_Project.Controllers
             };
             return View(model);
         }
+
+        
     }
 }

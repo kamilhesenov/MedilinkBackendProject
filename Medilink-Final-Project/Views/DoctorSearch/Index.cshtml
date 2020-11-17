@@ -18,8 +18,7 @@
                             <div class="team-search-box">
                                 <form asp-action="Index" method="get">
                                     <div class="row">
-
-                                        <div class="col-lg-4 col-sm-4">
+                                          <div class="col-lg-4 col-sm-4">
                                             <div class="search-item">
                                                 <div class="form-group">
                                                     <span class="search-select">
@@ -43,7 +42,6 @@
                                                                 }
 
                                                             </ul>
-
                                                         </span>
                                                     </span>
                                                 </div>
@@ -59,7 +57,6 @@
                                                 <input id="input" class="item-btn" type="submit" value="Search">
                                             </div>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
@@ -88,14 +85,13 @@
                                                 </div>
                                                 <div class="item-schedule">
                                                     <div class="btn-holder">
-                                                        <a href="#">Book an Appointment</a>
+                                                        <a asp-controller="DoctorDetail" asp-action="Index" asp-route-id="@item.Id">Book an Appointment</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 }
-                           
                             </div>
                        </div>
                     </div>
@@ -133,7 +129,5 @@
         label.innerHTML = this.innerHTML;
         option.value = this.value;
     })
-
-
 </script>
 }

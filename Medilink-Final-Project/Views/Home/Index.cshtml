@@ -232,7 +232,7 @@
                                 </div>
                                 <div class="item-content">
                                     <h3 class="item-title">
-                                        <a href="#">@item.FullName</a>
+                                        <a asp-controller="DoctorDetail" asp-action="Index" asp-route-id="@item.Id">@item.FullName</a>
                                     </h3>
                                     <p>@item.Department.Name</p>
                                 </div>

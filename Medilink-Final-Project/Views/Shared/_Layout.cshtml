@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/font/flaticon.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="~/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <script src="https://kit.fontawesome.com/f3c06c98be.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -32,7 +32,7 @@
                     <div class="col-sm-2 col-xs-12">
                         <div class="site-branding">
                             <a href="#">
-                                <img src="/assets/img/logo-dark.png" alt="Medilink">
+                                <img src="~/img/logo-dark.png" alt="Medilink">
                             </a>
                         </div>
                     </div>
@@ -56,26 +56,10 @@
                                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
                                     <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">About</a></li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Doctors</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a asp-controller="DoctorSearch" asp-action="Index">Doctors Search</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="DoctorDetail" asp-action="Index">Doctor Details</a>
-                                            </li>
-                                        </ul>
+                                        <a class="nav-link" asp-controller="DoctorSearch" asp-action="Index">Doctors</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Departments</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a asp-controller="Department" asp-action="Index">Department</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="DepartmentDetail" asp-action="Index">Department Detail</a>
-                                            </li>
-                                        </ul>
+                                        <a class="nav-link" asp-controller="Department" asp-action="Index">Departments</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Pages</a>
@@ -220,8 +204,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/main.js"></script>
 </body>
 @RenderSection("Scripts", false)
 </html>

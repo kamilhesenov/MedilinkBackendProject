@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Medilink_Final_Project.Models.ViewModel
 {
-    public class BannerViewModel
+    public class DoctorDetailViewModel
     {
-        public string Title { get; set; }
+        public Doctor Doctor { get; set; }
     }
 }
