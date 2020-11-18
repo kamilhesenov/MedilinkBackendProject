@@ -525,7 +525,6 @@ li {
 }
 
 #speciality {
-  background-image: url("/assets/img/new-banner.jpg");
   padding: 100px 0;
 }
 
@@ -1423,7 +1422,6 @@ li {
 }
 
 #need-doctor {
-  background-image: url("/assets/img/c3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -1452,6 +1450,10 @@ li {
   text-transform: capitalize;
   font-weight: 700;
   font-style: normal;
+}
+
+#need-doctor .appointment .call-to-action {
+  margin-top: 50px;
 }
 
 #need-doctor .appointment .call-to-action a {
@@ -1736,7 +1738,6 @@ li {
 
 #testimonial {
   width: 1349px;
-  background-image: url("/assets/img/bg-test.png");
   padding: 185px 0px 50px 0px;
   background-color: #396CF0 !important;
   position: relative;
@@ -4753,6 +4754,43 @@ li {
   text-transform: none;
   height: 48px;
   width: 120%;
+  cursor: pointer;
+}
+
+#appointment .appointment-container .appointment-column-wrap .appointment-widget .form form .appointment-box .appointment-guider .form-group .department-icon {
+  position: absolute;
+  top: 19%;
+  right: -19%;
+  background-color: #396CF0;
+  height: 32px;
+  width: 35px;
+  cursor: pointer;
+}
+
+#appointment .appointment-container .appointment-column-wrap .appointment-widget .form form .appointment-box .appointment-guider .form-group .department-icon i {
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+#appointment .appointment-container .appointment-column-wrap .appointment-widget .form form .appointment-box .appointment-guider .form-group .doctor-icon {
+  position: absolute;
+  top: 19%;
+  right: -19%;
+  background-color: #396CF0;
+  height: 32px;
+  width: 35px;
+  cursor: pointer;
+}
+
+#appointment .appointment-container .appointment-column-wrap .appointment-widget .form form .appointment-box .appointment-guider .form-group .doctor-icon i {
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  color: #ffffff;
+  font-size: 15px;
 }
 
 #appointment .appointment-container .appointment-column-wrap .appointment-widget .form form .appointment-box .appointment-guider .form-group .phone {

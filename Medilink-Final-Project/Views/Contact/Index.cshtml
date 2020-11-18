@@ -1,0 +1,59 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <!-- Banner section start -->
+    <partial name="_Banner" model="Model.BannerViewModel" />
+    <!-- Banner section end -->
+
+    <!-- Contact section start -->
+    <section id="contact">
+        <div class="container-fluid">
+            <div class="contact-us">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInLeft" data-wow-duration="3s">
+                        <div class="leave-message">
+                            <div class="content">
+                                <h2>Leave Us Message</h2>
+                            </div>
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                                <button type="submit" class="add-contact">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 wow fadeInRight" data-wow-duration="3s">
+                        <div class="leave-message">
+                            <div class="heading">
+                                <h2>Address</h2>
+                            </div>
+                            <div class="contact-social">
+                                <ul>
+                                    <li><i class="fas fa-map-marker"></i>@Model.Setting.Address</li>
+                                    <li><i class="fas fa-phone-square"></i>@Model.Setting.Phone</li>
+                                    <li><i class="far fa-envelope"></i>@Model.Setting.Email</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact section end -->
+</main>
+

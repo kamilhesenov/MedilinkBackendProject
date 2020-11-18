@@ -1,0 +1,133 @@
+﻿@model AppointmentViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <!-- Banner section start -->
+    <partial name="_Banner" model="Model.BannerViewModel" />
+    <!-- Banner section end -->
+
+    <!-- Appointment section start -->
+    <section id="appointment">
+        <div class="container-fluid">
+            <div class="appointment-container">
+                <div class="row">
+                    <div class="col-lg-6 col md-6 col-sm-12">
+                        <div class="appointment-column-wrap wow fadeInLeft" data-wow-duration="3s">
+                            <div class="appointment-widget">
+                                <div class="heading">
+                                    <h2>Make an Appointment</h2>
+                                </div>
+                                <div class="content">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                        luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    </p>
+                                </div>
+                                <div class="form">
+                                    <form method="post">
+                                        <div class="appointment-box">
+                                            <div class="row">
+                                                <div class="appointment-guider">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <select name="department" id="department" class="form-control">
+                                                                <option value="1">Select Department</option>
+                                                                <option value="2">Select </option>
+                                                                <option value="3"> Department</option>
+                                                                <option value="4">Doctor</option>
+                                                                <option value="5">Error</option>
+                                                            </select>
+                                                            <div class="department-icon">
+                                                                <i class="fas fa-angle-down"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <select name="doctor" id="doctor" class="form-control">
+                                                                <option value="1">Choose Doctor by Name</option>
+                                                                <option value="2">Select </option>
+                                                                <option value="3"> Department</option>
+                                                                <option value="4">Doctor</option>
+                                                                <option value="5">Error</option>
+                                                            </select>
+                                                            <div class="doctor-icon">
+                                                                <i class="fas fa-angle-down"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" name="patient" id="patient" placeholder="Patient Name *">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <input class="phone" type="text" class="form-control" name="phone" id="phone" placeholder="Phone *">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <input class="email" type="email" class="form-control" name="email" id="email" placeholder="E-mail*">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                                        <div class="form-group form-date">
+                                                            <input class="date" type="date" class="form-control" name="date" id="date">
+                                                            <i class="far fa-calendar-alt calendar"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                                        <div class="form-group form-time">
+                                                            <input class="time" type="text" class="form-control" name="time" id="time" placeholder="Time*">
+                                                            <i class="far fa-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" name="message" id="message" placeholder="Type Appintment Note"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="add-appointment">Make an Appointment</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 cols-sm-12">
+                        <div class="appointment-img wow fadeInRight" data-wow-duration="3s">
+                            <div class="img">
+                                <img src="~/uploads/@Model.AppointmentPhoto.Photo" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Appointment section end -->
+
+    <!-- service-to-patients section start -->
+    <section id="service-to-patients">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="service wow fadeInLeftBig" data-wow-duration="2s">
+                        <h2>We Provide the highest level of satisfaction care & services to our patients.</h2>
+                        <div class="call-to-action">
+                            <a href="#"><i class="fas fa-phone-alt"></i>+123 44092 888</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service-to-patients section end -->
+</main>
+
+

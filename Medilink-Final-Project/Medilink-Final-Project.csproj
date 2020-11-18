@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="wwwroot\ContactController.cs" />
+    <Content Include="Controllers\ContactController.cs" />
   </ItemGroup>
 
   <ItemGroup>

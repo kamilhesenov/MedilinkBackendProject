@@ -12,19 +12,19 @@ namespace Medilink_Final_Project.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Ad boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Name { get; set; }
 
         [MaxLength(100)]
         public string Photo { get; set; }
 
-        [Required(ErrorMessage = "Kontent boş ola bilməz"), MaxLength(500, ErrorMessage = "Maksimum 500 xarakter olmalıdır")]
+        [Required, MaxLength(500)]
         public string Content { get; set; }
 
-        [Required(ErrorMessage = "Mənfəət boş ola bilməz"), MaxLength(500, ErrorMessage = "Maksimum 500 xarakter olmalıdır")]
+        [Required, MaxLength(500)]
         public string Advantage { get; set; }
 
-        [Required(ErrorMessage = "Mətin boş ola bilməz"), MaxLength(600, ErrorMessage = "Maksimum 600 xarakter olmalıdır")]
+        [Required, MaxLength(600)]
         public string Text { get; set; }
 
         [NotMapped]

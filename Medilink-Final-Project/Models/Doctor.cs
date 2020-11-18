@@ -15,40 +15,43 @@ namespace Medilink_Final_Project.Models
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
 
-        [Required(ErrorMessage = "Ad və Soyad boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string FullName { get; set; }
 
-        [Required(ErrorMessage = "Haqqımda boş ola bilməz"), MaxLength(1000, ErrorMessage = "Maksimum 1000 xarakter olmalıdır")]
+        [Required, MaxLength(1000)]
         public string AboutMe { get; set; }
 
         [MaxLength(100)]
         public string Photo { get; set; }
 
-        [Required(ErrorMessage = "Telefon boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage = "Ofis boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Office { get; set; }
 
-        [Required(ErrorMessage = "E-poçt boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Facebook Linki boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Facebook { get; set; }
 
-        [Required(ErrorMessage = "Twitter Linki boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Twitter { get; set; }
 
-        [Required(ErrorMessage = "Linkedin Linki boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Linkedin { get; set; }
 
-        [Required(ErrorMessage = "Gmail Linki boş ola bilməz"), MaxLength(50, ErrorMessage = "Maksimum 50 xarakter olmalıdır")]
+        [Required, MaxLength(50)]
         public string Gmail { get; set; }
 
-        [Required(ErrorMessage = "Kontent boş ola bilməz"), MaxLength(500, ErrorMessage = "Maksimum 500 xarakter olmalıdır")]
+        [Required, MaxLength(500)]
         public string Content { get; set; }
 
         [NotMapped]
         public IFormFile Upload { get; set; }
+
+        public List<Appointment.Appointment> Appointments { get; set; }
+
     }
 }

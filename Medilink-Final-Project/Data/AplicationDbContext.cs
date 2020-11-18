@@ -1,5 +1,7 @@
 ﻿using Medilink_Final_Project.Models;
 using Medilink_Final_Project.Models.About;
+using Medilink_Final_Project.Models.Appointment;
+using Medilink_Final_Project.Models.Contact;
 using Medilink_Final_Project.Models.Home;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -34,5 +36,9 @@ namespace Medilink_Final_Project.Data
         public DbSet<Labaratory> Labaratories { get; set; }
         public DbSet<AboutChooseUs> AboutChooseUs { get; set; }
         public DbSet<AboutChooseUsItem> AboutChooseUsItems { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<AppointmentPhoto> AppointmentPhotos { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Shop> Shops { get; set; }
     }
 }
