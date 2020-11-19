@@ -15,17 +15,27 @@ namespace Medilink_Final_Project.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            ShopViewModel model = new ShopViewModel
+            ShopViewModel model = new ShopViewModel();
+            BannerViewModel bannerView = new BannerViewModel
             {
-                Shops = _context.Shops.ToList(),
-                BannerViewModel = new BannerViewModel
-                {
-                    Title = "Products"
-                }
+                Title = "Products"
             };
-            return View(model);
+            model.BannerViewModel = bannerView;
+
+            if(name != null)
+            {
+                model.Shops = _context.Shops.Where(s => s.Name.ToLower().Contains(name.ToLower())).ToList();
+                return View(model);
+            }
+            else
+            {
+                model.Shops = _context.Shops.ToList();
+                return View(model);
+            }
+
+            
         }
     }
 }

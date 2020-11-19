@@ -16,18 +16,20 @@
                     <div class="search-element-widjet">
                         <div class="search-element">
                             <div class="team-search-box">
-                                <div class="row">
-                                    <div class="col-lg-8 col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <input class="doctor-name form-controll" type="text" name="doctor-name" placeholder="Type Medicine Name Here ...">
+                                <form asp-action="Index" method="get">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <input class="doctor-name form-controll" type="text" id="name" name="name" placeholder="Type Medicine Name Here ...">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                            <div class="form-group">
+                                                <input id="input" class="item-btn" type="submit" value="Search">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                        <div class="form-group">
-                                            <input class="item-btn" type="submit" value="Search">
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                             <div class="medicine-items">
                                 @foreach (var item in Model.Shops)
@@ -38,7 +40,7 @@
                                                 <div class="item-img">
                                                     <img src="~/uploads/@item.Photo" class="img-fluid" alt="">
                                                     <div class="item-icon">
-                                                        <a data-id="1" href="#" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
+                                                        <a data-id="1"asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="item-content">

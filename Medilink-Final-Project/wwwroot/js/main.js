@@ -268,117 +268,117 @@ else{
 
 // Shop And Add to cart
 
-var addToBasket = document.querySelectorAll(".medicine-item .team-box .item-icon .add-to-basket");
-var cartCount = document.querySelector(".header-icon-area .search-box-area .search-box .icon-counter .cart-count");
-var cartItems = document.querySelector(".cart-items");
+//var addToBasket = document.querySelectorAll(".medicine-item .team-box .item-icon .add-to-basket");
+//var cartCount = document.querySelector(".header-icon-area .search-box-area .search-box .icon-counter .cart-count");
+//var cartItems = document.querySelector(".cart-items");
 
-addToBasket.forEach(elem =>{
-  elem.addEventListener("click",function(e){
-    e.preventDefault();
+//addToBasket.forEach(elem =>{
+//  elem.addEventListener("click",function(e){
+//    e.preventDefault();
     
-    var contentName = this.parentNode.parentNode.parentNode.lastElementChild.firstElementChild.innerText;
-    var contentImage = this.parentNode.parentNode.firstElementChild.getAttribute("src");
-    var contentPrice = this.parentNode.parentNode.parentNode.lastElementChild.lastElementChild.firstElementChild.innerText;
+//    var contentName = this.parentNode.parentNode.parentNode.lastElementChild.firstElementChild.innerText;
+//    var contentImage = this.parentNode.parentNode.firstElementChild.getAttribute("src");
+//    var contentPrice = this.parentNode.parentNode.parentNode.lastElementChild.lastElementChild.firstElementChild.innerText;
 
-    let basket = JSON.parse(localStorage.getItem("basket"));
+//    let basket = JSON.parse(localStorage.getItem("basket"));
    
-    if(basket == null){
-      basket ={
-        items: [],
-        count: 0,
-        total: 0,
-      };
-    }
-    let productId =this.dataset.id;
+//    if(basket == null){
+//      basket ={
+//        items: [],
+//        count: 0,
+//        total: 0,
+//      };
+//    }
+//    let productId =this.dataset.id;
 
-    let index = basket.items.findIndex((item)=>{
-         return item.id == productId;
-    })
+//    let index = basket.items.findIndex((item)=>{
+//         return item.id == productId;
+//    })
 
-    if(index == -1){
+//    if(index == -1){
       
-      let price = {
-        id: this.dataset.id,
-        name: contentName,
-        img: contentImage,
-        price: parseFloat(contentPrice),
-        qty: 1,
-      };
-      basket.items.push(price);
-    }else{
-      basket.items[index].qty ++;
-    }
+//      let price = {
+//        id: this.dataset.id,
+//        name: contentName,
+//        img: contentImage,
+//        price: parseFloat(contentPrice),
+//        qty: 1,
+//      };
+//      basket.items.push(price);
+//    }else{
+//      basket.items[index].qty ++;
+//    }
     
-    basket = calcTotalAndCount(basket);
+//    basket = calcTotalAndCount(basket);
 
-    if(cartCount != null){
-      cartCount.innerText = basket.count;
-    }
+//    if(cartCount != null){
+//      cartCount.innerText = basket.count;
+//    }
     
-    localStorage.setItem("basket",JSON.stringify(basket));
-  })
- })
+//    localStorage.setItem("basket",JSON.stringify(basket));
+//  })
+// })
 
- let basket = JSON.parse(localStorage.getItem("basket"));
+// let basket = JSON.parse(localStorage.getItem("basket"));
    
-    if(basket != null && cartCount != null){
+//    if(basket != null && cartCount != null){
       
-      cartCount.innerText = basket.count;
-    }
+//      cartCount.innerText = basket.count;
+//    }
 
-    if(basket != null && cartItems != null){
-      basket.items.forEach((item,index) =>{
+//    if(basket != null && cartItems != null){
+//      basket.items.forEach((item,index) =>{
        
-        let td = `<td class="product-remove">
-            <a class="remove-from-basket" data-id="${item.id}" href="#">x</a>
-        </td>
-        <td class="product-thumbnail">
-            <a href="#">
-                <img width="80" height="80" src="${item.img}" alt="">
-            </a>
-        </td>
-        <td class="product-name">
-            <a href="#">${item.name}</a>
-        </td>
-        <td class="product-price">
-            <span>${item.price} ₼</span>
-        </td>
-        <td class="product-quantity">
-            <input type="number" class="form-control" id="exampleInputNumber" value="${item.qty}">
-        </td>
-        <td class="product-subtotal">
-            <span>${item.price*item.qty} ₼</span>
-        </td>`
+//        let td = `<td class="product-remove">
+//            <a class="remove-from-basket" data-id="${item.id}" href="#">x</a>
+//        </td>
+//        <td class="product-thumbnail">
+//            <a href="#">
+//                <img width="80" height="80" src="${item.img}" alt="">
+//            </a>
+//        </td>
+//        <td class="product-name">
+//            <a href="#">${item.name}</a>
+//        </td>
+//        <td class="product-price">
+//            <span>${item.price} ₼</span>
+//        </td>
+//        <td class="product-quantity">
+//            <input type="number" class="form-control" id="exampleInputNumber" value="${item.qty}">
+//        </td>
+//        <td class="product-subtotal">
+//            <span>${item.price*item.qty} ₼</span>
+//        </td>`
  
-     let tr = document.createElement("tr");
-     tr.dataset.index = index;
-     tr.innerHTML = td;
-     cartItems.append(tr);
+//     let tr = document.createElement("tr");
+//     tr.dataset.index = index;
+//     tr.innerHTML = td;
+//     cartItems.append(tr);
 
-     });
+//     });
 
-    }
+//    }
    
-    var removeFromBasket = document.querySelectorAll(".remove-from-basket");
-    removeFromBasket.forEach(item =>{
-      item.addEventListener("click",function(e){
-        e.preventDefault();
-        let index = item.parentNode.parentNode.dataset.index;
-        basket.items.splice(index,1);
-        item.parentNode.parentNode.remove();
-        basket = calcTotalAndCount(basket);
-        localStorage.setItem("basket",JSON.stringify(basket));
-      })
-    })
+//    var removeFromBasket = document.querySelectorAll(".remove-from-basket");
+//    removeFromBasket.forEach(item =>{
+//      item.addEventListener("click",function(e){
+//        e.preventDefault();
+//        let index = item.parentNode.parentNode.dataset.index;
+//        basket.items.splice(index,1);
+//        item.parentNode.parentNode.remove();
+//        basket = calcTotalAndCount(basket);
+//        localStorage.setItem("basket",JSON.stringify(basket));
+//      })
+//    })
 
- function calcTotalAndCount(basket){
-  basket.count = 0;
-  basket.total = 0;
-  basket.items.forEach(item =>{
-    basket.total += (item.qty * item.price);
-    basket.count ++;
-  })
+// function calcTotalAndCount(basket){
+//  basket.count = 0;
+//  basket.total = 0;
+//  basket.items.forEach(item =>{
+//    basket.total += (item.qty * item.price);
+//    basket.count ++;
+//  })
 
-  return basket;
-}
+//  return basket;
+//}
 

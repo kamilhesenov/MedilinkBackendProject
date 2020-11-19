@@ -5378,6 +5378,10 @@ li {
   text-align: center;
 }
 
+#cart .cart-totals table tbody tr td strong {
+  font-weight: bold;
+}
+
 #contact {
   position: relative;
   max-width: 1320px;

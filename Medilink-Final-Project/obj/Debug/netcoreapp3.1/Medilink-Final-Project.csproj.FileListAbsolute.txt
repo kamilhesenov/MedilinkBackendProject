@@ -348,3 +348,5 @@ C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\n
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NeedDoctor.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Index.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderViewBagComponent\Default.cshtml.g.cs

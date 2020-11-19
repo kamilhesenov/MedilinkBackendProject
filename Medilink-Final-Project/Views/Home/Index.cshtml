@@ -52,22 +52,17 @@
                 <div class="col-lg-4">
                     <div class="welcome-hospital-icon wow fadeInRight" data-wow-duration="3s">
                         <div class="welcome-hospital-link">
-                            <a href="#">
+                            <a asp-controller="Appointment" asp-action="Index">
                                 <i class="fas fa-calendar-week"></i>
                                 <span>Request Appointment</span>
                                 <i class="fas fa-chevron-right"></i>
                             </a>
-                            <a href="#">
+                            <a asp-controller="DoctorSearch" asp-action="Index">
                                 <i class="fas fa-user-md"></i>
                                 <span>Find Doctors</span>
                                 <i class="fas fa-chevron-right"></i>
                             </a>
-                            <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Find Locations</span>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <a href="#">
+                            <a asp-controller="Contact" asp-action="Index">
                                 <i class="fas fa-phone-alt"></i>
                                 <span>Emergency Contact</span>
                                 <i class="fas fa-chevron-right"></i>
