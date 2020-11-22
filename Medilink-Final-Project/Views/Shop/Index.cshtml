@@ -7,7 +7,6 @@
     <!-- Banner section start -->
     <partial name="_Banner" model="Model.BannerViewModel" />
     <!-- Banner section end -->
-
     <!-- Products section start -->
     <section id="products">
         <div class="container-fluid">
@@ -16,7 +15,7 @@
                     <div class="search-element-widjet">
                         <div class="search-element">
                             <div class="team-search-box">
-                                <form asp-action="Index" method="get">
+                                <form asp-action="Index" method="get" id="medicine-form">
                                     <div class="row">
                                         <div class="col-lg-8 col-md-12 col-sm-12">
                                             <div class="form-group">
@@ -40,7 +39,7 @@
                                                 <div class="item-img">
                                                     <img src="~/uploads/@item.Photo" class="img-fluid" alt="">
                                                     <div class="item-icon">
-                                                        <a data-id="1"asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
+                                                        <a data-id="1" asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="item-content">

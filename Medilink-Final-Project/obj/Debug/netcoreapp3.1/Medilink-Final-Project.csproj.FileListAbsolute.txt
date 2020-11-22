@@ -156,7 +156,6 @@ C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\n
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Testimonial.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Brand.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderSettingComponent\Default.cshtml.g.cs
-C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderSocialLinkComponent\Default.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\FooterSettingComponent\Default.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\FooterSocialLinkComponent\Default.cshtml.g.cs
 C:\Users\Kamil\Desktop\MedilinkBackendProject\Medilink-Final-Project\Medilink-Final-Project\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -350,3 +349,6 @@ C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\n
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Index.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HeaderViewBagComponent\Default.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_getDoctor.cshtml.g.cs

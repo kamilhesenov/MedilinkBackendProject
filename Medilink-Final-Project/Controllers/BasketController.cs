@@ -113,14 +113,10 @@ namespace Medilink_Final_Project.Controllers
         }
 
 
+        [Route("basket")]
         public async Task<IActionResult> Index()
         {
-            ViewBag.BasketCount = 5;
-            List<Shop> products = _context.Shops.ToList();
-            foreach (Shop item in products)
-            {
-                ViewBag.dbProductCount = item.Count;
-            }
+           
 
             string fbasket = Request.Cookies["fbasket"];
             List<ShopViewModel> basketProducts = new List<ShopViewModel>();
@@ -136,12 +132,14 @@ namespace Medilink_Final_Project.Controllers
                         basketProduct.Price = dbProduct.Price;
                         basketProduct.Photo = dbProduct.Photo;
                         basketProduct.Name = dbProduct.Name;
+                        basketProduct.DbCount = dbProduct.Count;
                     }
 
                 }
             }
 
             return View(basketProducts);
-        }
+        
+       }
     }
 }

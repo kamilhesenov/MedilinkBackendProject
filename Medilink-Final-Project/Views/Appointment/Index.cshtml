@@ -33,11 +33,11 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <div class="form-group">
                                                             <select name="department" id="department" class="form-control">
-                                                                <option value="1">Select Department</option>
-                                                                <option value="2">Select </option>
-                                                                <option value="3"> Department</option>
-                                                                <option value="4">Doctor</option>
-                                                                <option value="5">Error</option>
+                                                                <option value="0" selected disabled>Select Department</option>
+                                                                @foreach (var item in Model.Departments)
+                                                                {
+                                                                    <option value="@item.Id">@item.Name</option>
+                                                                }
                                                             </select>
                                                             <div class="department-icon">
                                                                 <i class="fas fa-angle-down"></i>
@@ -47,11 +47,11 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <div class="form-group">
                                                             <select name="doctor" id="doctor" class="form-control">
-                                                                <option value="1">Choose Doctor by Name</option>
-                                                                <option value="2">Select </option>
-                                                                <option value="3"> Department</option>
-                                                                <option value="4">Doctor</option>
-                                                                <option value="5">Error</option>
+                                                                <option value="0" selected disabled>Choose Doctor by Name</option>
+                                                                @foreach (var item in Model.Doctors)
+                                                                {
+                                                                    
+                                                                }
                                                             </select>
                                                             <div class="doctor-icon">
                                                                 <i class="fas fa-angle-down"></i>
@@ -65,23 +65,23 @@
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group">
-                                                            <input class="phone" type="text" class="form-control" name="phone" id="phone" placeholder="Phone *">
+                                                            <input type="text" class="form-control phone" name="phone" id="phone" placeholder="Phone *">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group">
-                                                            <input class="email" type="email" class="form-control" name="email" id="email" placeholder="E-mail*">
+                                                            <input type="email" class="form-control email" name="email" id="email" placeholder="E-mail*">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group form-date">
-                                                            <input class="date" type="date" class="form-control" name="date" id="date">
+                                                            <input type="date" class="form-control date" name="date" id="date">
                                                             <i class="far fa-calendar-alt calendar"></i>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group form-time">
-                                                            <input class="time" type="text" class="form-control" name="time" id="time" placeholder="Time*">
+                                                            <input type="text" class="form-control time" name="time" id="time" placeholder="Time*">
                                                             <i class="far fa-clock"></i>
                                                         </div>
                                                     </div>
@@ -131,3 +131,25 @@
 </main>
 
 
+@section Scripts{ 
+<script>
+    $(document).ready(function () {
+        $(document).on("change", "#department", function () {
+            
+           let id = $(this).val();
+            event.preventDefault();
+            $.ajax({
+                url: "/Appointment/GetDoctorsByDepartment?Id=" + id,
+                type: "Get",
+                success: function (res) {
+                    $("#doctor").empty();
+                    //$("#doctor").html() = res;
+                    $("#doctor").append(res);
+                    $("#doctor").prepend(`<option  value="${0}" selected disabled>Choose Doctor by Name</option>`)
+                }
+            })
+        })
+    })
+    
+</script>
+}

@@ -15,6 +15,8 @@ namespace Medilink_Final_Project.Controllers
         {
             _context = context;
         }
+
+        [Route("products")]
         public IActionResult Index(string name)
         {
             ShopViewModel model = new ShopViewModel();

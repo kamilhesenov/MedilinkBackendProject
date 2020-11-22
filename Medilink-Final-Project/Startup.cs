@@ -1,8 +1,10 @@
 using Medilink_Final_Project.Data;
 using Medilink_Final_Project.Filter;
+using Medilink_Final_Project.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +33,18 @@ namespace Medilink_Final_Project
             services.AddDbContext<AplicationDbContext>(options =>
                      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IFileManager, FileManager>();
+            services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
+            {
+
+                identityOptions.Password.RequireDigit = true;
+                identityOptions.Password.RequireLowercase = false;
+                identityOptions.Password.RequireNonAlphanumeric = false;
+                identityOptions.Password.RequireUppercase = false;
+                identityOptions.User.RequireUniqueEmail = true;
+                identityOptions.Lockout.MaxFailedAccessAttempts = 5;
+                identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                identityOptions.Lockout.AllowedForNewUsers = true;
+            }).AddEntityFrameworkStores<AplicationDbContext>().AddDefaultTokenProviders();
             services.AddPaging(options => {
                 options.ViewName = "Bootstrap4";
             });
@@ -61,6 +75,11 @@ namespace Medilink_Final_Project
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

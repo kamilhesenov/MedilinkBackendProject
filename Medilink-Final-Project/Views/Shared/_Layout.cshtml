@@ -20,7 +20,11 @@
             <div class="container-fluid">
                 <div class="row no-gutter">
                     <vc:header-setting-component></vc:header-setting-component>
-                    <vc:header-social-link-component></vc:header-social-link-component>
+                    <div class="col-md-3 col-lg-2 col-xs-12 tophead-right header-social-layout1  phone-has-social">
+                        <div class="login">
+                            <a asp-controller="Account" asp-action="Login">login / Signup </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -53,17 +57,11 @@
                                         <a class="nav-link" asp-controller="Department" asp-action="Index">Departments</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a asp-controller="Shop" asp-action="Index">Shop</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Basket" asp-action="Index">Cart</a>
-                                            </li>
-                                        </ul>
+                                        <a class="nav-link" asp-controller="Shop" asp-action="Index">Shop</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -199,5 +197,5 @@
     <script src="~/js/main.js"></script>
 </body>
 @RenderSection("Scripts", false)
-@RenderSection("Css", false)
+@RenderSection("Style", false)
 </html>

@@ -40,5 +40,7 @@ namespace Medilink_Final_Project.Data
         public DbSet<AppointmentPhoto> AppointmentPhotos { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Shop> Shops { get; set; }
+
+        
     }
 }

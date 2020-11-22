@@ -12,10 +12,10 @@ namespace Medilink_Final_Project.Models.Home
     {
         public int Id { get; set; }
 
-        [Required, MaxLength(50)]
+        [Required, MaxLength(100)]
         public string Header { get; set; }
 
-        [Required, MaxLength(300)]
+        [Required, MaxLength(350)]
         public string Content { get; set; }
 
         [MaxLength(100)]

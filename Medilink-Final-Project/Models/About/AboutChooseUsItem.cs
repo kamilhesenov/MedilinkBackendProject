@@ -13,7 +13,7 @@ namespace Medilink_Final_Project.Models.About
         [Required, MaxLength(200)]
         public string Title { get; set; }
 
-        [Required, MaxLength(500)]
+        [Required, MaxLength(600)]
         public string Content { get; set; }
     }
 }

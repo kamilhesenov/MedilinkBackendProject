@@ -1,6 +1,7 @@
 ﻿using Medilink_Final_Project.Data;
 using Medilink_Final_Project.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace Medilink_Final_Project.Controllers
         {
             _context = context;
         }
+
+        [Route("appointment")]
         public IActionResult Index()
         {
             AppointmentViewModel model = new AppointmentViewModel
@@ -23,9 +26,18 @@ namespace Medilink_Final_Project.Controllers
                 BannerViewModel = new BannerViewModel
                 {
                     Title = "Appointment Form"
-                }
+                },
+                Doctors = _context.Doctors.ToList(),
+                Departments = _context.Departments.Include(d=>d.Doctors).ToList()
             };
             return View(model);
+        }
+
+        public IActionResult GetDoctorsByDepartment(int? id)
+        {
+            if (id == null) return NotFound();
+            var doctors = _context.Doctors.Where(d => d.DepartmentId == id).ToList();
+            return PartialView("_getDoctor",doctors);
         }
     }
 }

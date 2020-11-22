@@ -16,6 +16,8 @@ namespace Medilink_Final_Project.Controllers
         {
             _context = context;
         }
+
+        [Route("department/detail")]
         public IActionResult Index(int Id)
         {
             DepartmentDetailViewModel model = new DepartmentDetailViewModel

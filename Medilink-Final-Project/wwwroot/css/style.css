@@ -5616,7 +5616,6 @@ li {
 }
 
 #login {
-  background: #f1f1f1;
   min-width: 0;
   color: #444;
   font-size: 13px;
@@ -5637,8 +5636,9 @@ li {
 #login .login {
   margin: 0;
   padding: 0;
-  width: 320px;
+  width: 430px;
   margin: auto;
+  margin-left: 30%;
 }
 
 #login .login .content {
@@ -5724,13 +5724,13 @@ li {
 #login .login form .form-group .login-btn {
   min-height: 32px;
   line-height: 2.30769231;
-  font-size: 13px;
-  padding: 0 12px;
+  font-size: 15px;
+  padding: 5px 100px;
   vertical-align: baseline;
   border-radius: 3px;
   float: right;
-  background: #007cba;
-  border-color: #007cba;
+  background: #09e5ab;
+  border-color: #09e5ab;
   color: #fff;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
@@ -5740,8 +5740,8 @@ li {
 }
 
 #login .login form .form-group .login-btn:hover {
-  background: #0071a1;
-  border-color: #0071a1;
+  background: #09dca4;
+  border-color: #09dca4;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -5749,8 +5749,49 @@ li {
   -o-transition: all 0.3s ease-out;
 }
 
+#login .login form .account {
+  color: #3d3d3d;
+  margin-top: 50px;
+  font-size: 15px;
+  text-align: center !important;
+}
+
+#login .login form .account a {
+  background: #09e5ab;
+  border-color: #09e5ab;
+  border-radius: 3px;
+  color: #fff;
+  padding: 6px 15px;
+  font-size: 15px;
+  min-height: 32px;
+  line-height: 2.30769231;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+#login .login form .account a:hover {
+  background: #09dca4;
+  border-color: #09dca4;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+#login .img {
+  margin-top: 10%;
+}
+
+#login .img img {
+  width: 125%;
+}
+
 #register {
-  background: #f1f1f1;
   min-width: 0;
   color: #444;
   font-size: 13px;
@@ -5771,8 +5812,9 @@ li {
 #register .login {
   margin: 0;
   padding: 0;
-  width: 320px;
+  width: 430px;
   margin: auto;
+  margin-left: 30%;
 }
 
 #register .login .content {
@@ -5858,13 +5900,13 @@ li {
 #register .login form .form-group .login-btn {
   min-height: 32px;
   line-height: 2.30769231;
-  font-size: 13px;
-  padding: 0 12px;
+  font-size: 15px;
+  padding: 5px 100px;
   vertical-align: baseline;
   border-radius: 3px;
   float: right;
-  background: #007cba;
-  border-color: #007cba;
+  background: #09e5ab;
+  border-color: #09e5ab;
   color: #fff;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
@@ -5874,13 +5916,21 @@ li {
 }
 
 #register .login form .form-group .login-btn:hover {
-  background: #0071a1;
-  border-color: #0071a1;
+  background: #09dca4;
+  border-color: #09dca4;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
+}
+
+#register .img {
+  margin-top: 10%;
+}
+
+#register .img img {
+  width: 132%;
 }
 
 /*!
@@ -8902,6 +8952,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #header-top .no-gutter .header-social-layout1 .tophead-social li a i {
   color: #8a8a8a;
   font-weight: 400;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+#header-top .login a {
+  border: 2px solid #09e5ab;
+  border-radius: 4px;
+  padding: 10px 15px !important;
+  text-align: center;
+  font-size: 15px;
+  color: #09e5ab;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+#header-top .login a:hover {
+  background-color: #09e5ab;
+  border-color: #09e5ab;
+  color: #fff;
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;

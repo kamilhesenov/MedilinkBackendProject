@@ -1,5 +1,7 @@
 ﻿using Medilink_Final_Project.Data;
+using Medilink_Final_Project.Models.Contact;
 using Medilink_Final_Project.Models.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,8 @@ namespace Medilink_Final_Project.Controllers
         {
             _context = context;
         }
+
+        [Route("contact")]
         public IActionResult Index()
         {
             ContactViewModel model = new ContactViewModel
@@ -26,6 +30,26 @@ namespace Medilink_Final_Project.Controllers
                 }
             };
             return View(model);
+        }
+
+        [HttpPost]
+        [Route("contact")]
+        public IActionResult Send([FromForm] ContactSendViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Contact contact = new Contact
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    Message = model.Message
+                };
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+               
+                return NoContent();
+            }
+            return NoContent();
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Medilink_Final_Project.Models
         public string Name { get; set; }
 
         public int Count { get; set; }
+
+        [Column(TypeName ="money")]
         public decimal Price { get; set; }
         public byte Star { get; set; }
 

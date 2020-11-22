@@ -15,16 +15,24 @@
                 any question:
                 <a href="#">@Model.Phone</a>
             </li>
-            <li class="phone-has-email-off">
+            <li class="phone-has-email-off ml-5">
                 <i class="fa fa-envelope-o"></i>
                 <a href="#">@Model.Email</a>
             </li>
-            <li class="phone-has-opening-off">
-                <i class="far fa-clock"></i>
-                <span class="opening-label">Mon - Fri: &nbsp;</span>
-                 9.00am - 11.00pm
+            
+            <li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @User.Identity.Name
+                    <a class="btn btn-success ml-5 text-white" asp-controller="account" asp-action="logout">&nbsp;&nbsp;Logout</a>
+                }
+                else
+                {
+                    <a class="d-none">&nbsp;&nbsp;Logout</a>
+                }
+
             </li>
-        </ul>
+          </ul>
     </div>
 </div>
 

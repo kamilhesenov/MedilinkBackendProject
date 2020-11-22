@@ -9,14 +9,10 @@ namespace Medilink_Final_Project.Models.Contact
     public class Contact
     {
         public int Id { get; set; }
-
-        [Required, MaxLength(50)]
         public string Name { get; set; }
-
-        [Required, MaxLength(50)]
+        
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
-        [Required, MaxLength(600)]
         public string Message { get; set; }
     }
 }

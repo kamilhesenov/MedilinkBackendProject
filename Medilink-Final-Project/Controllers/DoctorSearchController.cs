@@ -19,6 +19,7 @@ namespace Medilink_Final_Project.Controllers
         }
 
         [HttpGet]
+        [Route("doctors")]
         public IActionResult Index(int departmentId,string name)
         {
             ViewBag.Departments = _context.Doctors.Include(d => d.Department).ToList();
