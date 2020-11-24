@@ -18,21 +18,21 @@
                             <div class="content">
                                 <h2>Leave Us Message</h2>
                             </div>
-                            <form method="post" id="contactForm">
+                            <form id="contactForm">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input asp-for="@Model.Contact.Name" type="text" class="form-control name" id="name" aria-describedby="nameHelp" required>
-                                    <span id="contact-name" class="text-danger"></span>
+                                    <input asp-for="@Model.ContactSendViewModel.Name" type="text" class="form-control name" id="name" aria-describedby="nameHelp">
+                                    <span asp-validation-for="@Model.ContactSendViewModel.Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input asp-for="@Model.Contact.Email" type="email" class="form-control email" id="email" required>
-                                    <span id="contact-email" class="text-danger"></span>
+                                    <input asp-for="@Model.ContactSendViewModel.Email" type="email" class="form-control email" id="email">
+                                    <span asp-validation-for="@Model.ContactSendViewModel.Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label>Message</label>
-                                    <textarea asp-for="@Model.Contact.Message" class="form-control message" required></textarea>
-                                    <span id="contact-message" class="text-danger"></span>
+                                    <textarea asp-for="@Model.ContactSendViewModel.Message" class="form-control message"></textarea>
+                                    <span asp-validation-for="@Model.ContactSendViewModel.Message" class="text-danger"></span>
                                 </div>
                                 <button type="submit" class="add-contact">Send</button>
                             </form>
@@ -64,19 +64,23 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script>
 
-        $(".add-contact").click(function () {
-            ValidateEmail();
-            if ($(".name").val() != "" &&  $(".email").val() != "" && $(".message").val() != "") {
-                let formData = new FormData();
-                formData.append("Name", $(".name").val());
-                formData.append("Email", $(".email").val());
-                formData.append("Message", $(".message").val());
-                axios.post('/contact', formData)
-                    .then(function (response) {
+        $(document).ready(function () {
+            $("#contactForm").submit(function (e) {
+                e.preventDefault();
+                let formData = {
+                    Name: $(".name").val(),
+                    Email: $(".email").val(),
+                    Message: $(".message").val()
+                };
+
+                $.ajax({
+                    url: "/contact/Send",
+                    type: "post",
+                    data: formData,
+                    success: function (response) {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -88,22 +92,49 @@
                             $(".email").val("");
                             $(".message").val("");
                         })
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            }
-           })
-             let email = $(".email").val();
-            function ValidateEmail(email)
-                {
-                 if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value))
-                  {
-                    return (true)
-                  }
-                    alert("You have entered an invalid email address!")
-                    return (false)
-                }
+                    },
+                    error: function (error) { }
+                })
+            })
+        })
+
+
+        //$(".add-contact").click(function () {
+        //    //ValidateEmail();
+        //    if ($(".name").val() != "" &&  $(".email").val() != "" && $(".message").val() != "") {
+        //        let formData = new FormData();
+        //        formData.append("Name", $(".name").val());
+        //        formData.append("Email", $(".email").val());
+        //        formData.append("Message", $(".message").val());
+        //        axios.post('/contact', formData)
+        //            .then(function (response) {
+        //                Swal.fire({
+        //                    position: 'top-end',
+        //                    icon: 'success',
+        //                    title: 'Your message has sended',
+        //                    showConfirmButton: false,
+        //                    timer: 1500
+        //                }).then(function (result) {
+        //                    $(".name").val("");
+        //                    $(".email").val("");
+        //                    $(".message").val("");
+        //                })
+        //            })
+        //            .catch(function (error) {
+        //                console.log(error);
+        //            });
+        //    }
+        //   })
+            // let email = $(".email").val();
+            //function ValidateEmail(email)
+            //    {
+            //     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value))
+            //      {
+            //        return (true)
+            //      }
+            //        alert("You have entered an invalid email address!")
+            //        return (false)
+            //    }
 
     </script>
 }

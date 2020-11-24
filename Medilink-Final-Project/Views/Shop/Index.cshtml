@@ -7,6 +7,7 @@
     <!-- Banner section start -->
     <partial name="_Banner" model="Model.BannerViewModel" />
     <!-- Banner section end -->
+
     <!-- Products section start -->
     <section id="products">
         <div class="container-fluid">
@@ -22,18 +23,13 @@
                                                 <input class="doctor-name form-controll" type="text" id="name" name="name" placeholder="Type Medicine Name Here ...">
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <div class="form-group">
-                                                <input id="input" class="item-btn" type="submit" value="Search">
-                                            </div>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="medicine-items">
                                 @foreach (var item in Model.Shops)
                                 {
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" data-role="shop">
                                         <div class="medicine-item wow fadeInUp" data-wow-duration="3s">
                                             <div class="team-box">
                                                 <div class="item-img">
@@ -68,3 +64,13 @@
     <!-- Products section end -->
 </main>
 
+@section Scripts{ 
+    <script>
+        $(".doctor-name").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+            $('div[data-role="shop"]').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+    </script>
+}

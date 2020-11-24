@@ -10,5 +10,6 @@ namespace Medilink_Final_Project.Models.ViewModel
         public BannerViewModel BannerViewModel { get; set; }
         public Contact.Contact Contact { get; set; }
         public Setting Setting { get; set; }
+        public ContactSendViewModel ContactSendViewModel { get; set; }
     }
 }

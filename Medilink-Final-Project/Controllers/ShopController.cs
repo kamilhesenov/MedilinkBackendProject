@@ -37,7 +37,6 @@ namespace Medilink_Final_Project.Controllers
                 return View(model);
             }
 
-            
         }
     }
 }

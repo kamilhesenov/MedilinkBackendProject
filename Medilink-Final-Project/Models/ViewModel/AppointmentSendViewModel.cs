@@ -9,9 +9,9 @@ namespace Medilink_Final_Project.Models.ViewModel
 {
     public class AppointmentSendViewModel
     {
-        public List<Doctor> Doctors { get; set; }
-        public List<Department> Departments { get; set; }
-        
+
+        public int DoctorId { get; set; }
+
         [Required, MaxLength(50)]
         public string PatientName { get; set; }
 

@@ -12,5 +12,6 @@ namespace Medilink_Final_Project.Models.ViewModel
         public Appointment.Appointment Appointment { get; set; }
         public List<Doctor> Doctors { get; set; }
         public List<Department> Departments { get; set; }
+        public AppointmentSendViewModel AppointmentSendViewModel { get; set; }
     }
 }

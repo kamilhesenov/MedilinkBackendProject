@@ -18,7 +18,7 @@ namespace Medilink_Final_Project.Controllers
             _context = context;
         }
 
-        [Route("contact")]
+        
         public IActionResult Index()
         {
             ContactViewModel model = new ContactViewModel
@@ -33,9 +33,13 @@ namespace Medilink_Final_Project.Controllers
         }
 
         [HttpPost]
-        [Route("contact")]
-        public IActionResult Send([FromForm] ContactSendViewModel model)
+        public IActionResult Send(ContactSendViewModel model)
         {
+            if (string.IsNullOrEmpty(model.Name) || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Message))
+            {
+                return BadRequest();
+            }
+
             if (ModelState.IsValid)
             {
                 Contact contact = new Contact
@@ -46,10 +50,10 @@ namespace Medilink_Final_Project.Controllers
                 };
                 _context.Contacts.Add(contact);
                 _context.SaveChanges();
-               
+
                 return NoContent();
             }
-            return NoContent();
+            return View();
         }
     }
 }
