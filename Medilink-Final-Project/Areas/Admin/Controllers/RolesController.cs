@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Medilink_Final_Project.Controllers
+namespace Medilink_Final_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
@@ -16,15 +16,20 @@ namespace Medilink_Final_Project.Controllers
     {
         RoleManager<IdentityRole> _roleManager;
         UserManager<AppUser> _userManager;
+
         public RolesController(RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
         public IActionResult Index()
         {
             return View(_roleManager.Roles.ToList());
         }
+
+        [HttpGet]
+        public IActionResult Create() => View();
 
         [HttpPost]
         public async Task<IActionResult> Create(string name)

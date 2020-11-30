@@ -50,7 +50,7 @@ namespace Medilink_Final_Project.Controllers
                 return View(register);
             }
 
-            await _userManager.AddToRoleAsync(user, "Admin");
+            await _userManager.AddToRoleAsync(user, "Member");
             await _signInManager.SignInAsync(user, true);
 
             return RedirectToAction("Index", "Home");

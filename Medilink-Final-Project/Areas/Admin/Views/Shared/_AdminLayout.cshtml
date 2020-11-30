@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Roles">
+                <a class="nav-link" asp-controller="Roles" asp-action="Index">
                     <span>Roles</span>
                 </a>
             </li>
@@ -71,9 +71,9 @@
                 </a>
                 <div id="collapsePages" class="collapse homepageitem" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        @*<a class="collapse-item" asp-controller="AboutUs">AboutUs</a>
-                        <a class="collapse-item" asp-controller="AboutUsItems">AboutUsItem</a>
-                        <a class="collapse-item" asp-controller="Heroes">Hero</a>
+                        <a class="collapse-item" asp-controller="HomeIntroes">Home Intro</a>
+                        <a class="collapse-item" asp-controller="WelcomeHospital">Welcome Hospital</a>
+                        @*<a class="collapse-item" asp-controller="Heroes">Hero</a>
                         <a class="collapse-item" asp-controller="HomeOurNewsItems">HomeOurNewsItem</a>
                         <a class="collapse-item" asp-controller="HomePortfolioItems">HomePortfolioItem</a>
                         <a class="collapse-item" asp-controller="HomeServiceItems">HomeServiceItem</a>
@@ -155,13 +155,7 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
+                        
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
