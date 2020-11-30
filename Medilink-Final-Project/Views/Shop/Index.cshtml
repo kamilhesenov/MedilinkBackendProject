@@ -35,7 +35,7 @@
                                                 <div class="item-img">
                                                     <img src="~/uploads/@item.Photo" class="img-fluid" alt="">
                                                     <div class="item-icon">
-                                                        <a data-id="1" asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
+                                                      <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id" data-id="@item.Id" class="add-to-basket"><i class="fas fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="item-content">
@@ -65,12 +65,57 @@
 </main>
 
 @section Scripts{ 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         $(".doctor-name").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
             $('div[data-role="shop"]').filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-            });
+        });
+
+        //$(document).ready(function () {
+        //    $(document).on("click", ".add-to-basket", function (e) {
+        //        e.preventDefault();
+        //        let id = $(this).attr("data-id");
+        //        $.ajax({
+        //            url: "/Basket/AddBasket?Id=" + id,
+        //            type: "Get",
+        //            success: function (res) {
+        //                console.log(res);
+        //                $(".cart-count").text() = res;
+                        
+        //            }
+        //        })
+        //    })
+        //})
+     
+            //let addtobasket = document.querySelectorAll(".add-to-basket");
+            //addtobasket.forEach(item=>{
+            //    item.addEventListener("click", function (event) {
+            //        let id = $(this).attr("data-id");
+            //        event.preventDefault();
+            //        $.ajax({
+            //            url: "/Basket/AddBasket?Id=" + id,
+            //            type: "Get",
+            //            success: function (res) {
+            //                console.log(res)
+            //                $(".cart-count").text() = res;
+            //            }
+            //        })
+            //    })
+            //    })
+    
+            
+                
     </script>
+}
+
+@section Style{ 
+<style>
+    .add-to-basket{
+        cursor: pointer;
+    }
+</style>
 }

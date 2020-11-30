@@ -18,7 +18,7 @@ namespace Medilink_Final_Project.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        
         [Route("doctors")]
         public IActionResult Index(int departmentId,string name)
         {
@@ -59,5 +59,6 @@ namespace Medilink_Final_Project.Controllers
             }
             
         }
+
     }
 }

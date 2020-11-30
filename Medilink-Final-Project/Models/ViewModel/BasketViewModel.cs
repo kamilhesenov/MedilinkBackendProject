@@ -7,6 +7,12 @@ namespace Medilink_Final_Project.Models.ViewModel
 {
     public class BasketViewModel
     {
-        public BannerViewModel BannerViewModel { get; set; }
+        public int Id { get; set; }
+        public int Count { get; set; }
+        public decimal Price { get; set; }
+        public string Name { get; set; }
+        public string Photo { get; set; }
+        public int DbCount { get; set; }
+        public string UserName { get; set; }
     }
 }

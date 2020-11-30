@@ -27,7 +27,6 @@
                                 </div>
                                 <div class="form">
                                     <form id="appointment-form">
-                                        <div asp-validation-summary="All" class="text-danger"></div>
                                         <div class="appointment-box">
                                             <div class="row">
                                                 <div class="appointment-guider">
@@ -51,7 +50,7 @@
                                                                 <option value="0" selected disabled>Choose Doctor by Name</option>
                                                                 @foreach (var item in Model.Doctors)
                                                                 {
-
+                                                                    
                                                                 }
                                                             </select>
                                                             <div class="doctor-icon">
@@ -61,38 +60,37 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <div class="form-group">
-                                                            <input asp-for="@Model.AppointmentSendViewModel.PatientName" type="text" class="form-control patient" name="patient" id="patient" placeholder="Patient Name *" required>
+                                                            <input asp-for="@Model.AppointmentSendViewModel.PatientName" type="text" class="form-control patient" placeholder="Patient Name *" >
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.PatientName" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group">
-                                                            <input asp-for="@Model.AppointmentSendViewModel.Phone" type="tel" class="form-control phone" name="phone" id="phone" placeholder="Phone *" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                                                            <input asp-for="@Model.AppointmentSendViewModel.Phone" type="tel" class="form-control phone" placeholder="Phone *">
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.Phone" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group">
-                                                            <input asp-for="@Model.AppointmentSendViewModel.Email" type="email" class="form-control email" name="email" id="email" placeholder="E-mail*" required>
+                                                            <input asp-for="@Model.AppointmentSendViewModel.Email" type="email" class="form-control email" placeholder="E-mail*" >
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.Email" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group form-date">
-                                                            <input asp-for="@Model.AppointmentSendViewModel.Date" type="date" class="form-control date" name="date" id="date" required>
+                                                            <input asp-for="@Model.AppointmentSendViewModel.Date" type="date" class="form-control date" >
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.Date" class="text-danger"></span>
-                                                            <i class="far fa-calendar-alt calendar"></i>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                                         <div class="form-group form-time">
-                                                            <input asp-for="@Model.AppointmentSendViewModel.Time" type="time" class="form-control time" name="time" id="time" placeholder="Time*" required>
+                                                            <input asp-for="@Model.AppointmentSendViewModel.Time" type="time" class="form-control time" placeholder="Time*">
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.Time" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <div class="form-group">
-                                                            <textarea asp-for="@Model.AppointmentSendViewModel.Text" class="form-control message" name="message" id="message" placeholder="Type Appintment Note" required></textarea>
+                                                            <textarea asp-for="@Model.AppointmentSendViewModel.Text" class="form-control message" placeholder="Type Appintment Note" ></textarea>
                                                             <span asp-validation-for="@Model.AppointmentSendViewModel.Text" class="text-danger"></span>
                                                         </div>
                                                     </div>
@@ -140,17 +138,18 @@
 @section Scripts{
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="phoneno-all-numeric-validation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
     <script>
-        $(document).ready(function () {
-            $(document).on("change", "#department", function () {
 
+         $(document).ready(function () {
+            $(document).on("change", "#department", function () {
                 let id = $(this).val();
                 event.preventDefault();
                 $.ajax({
-                    url: "/Appointment/GetDoctorsByDepartment?Id=" + id,
+                    url: "/appointment/GetDoctorsByDepartment?Id=" + id,
                     type: "Get",
                     success: function (res) {
                         $("#doctor").empty();
@@ -166,6 +165,7 @@
         $(document).ready(function () {
             $("#appointment-form").submit(function (e) {
                 e.preventDefault();
+                
                 let formData = {
                     DoctorId: $("#doctor").val(),
                     PatientName: $(".patient").val(),
@@ -179,55 +179,13 @@
                     url: "/appointment/Send",
                     type: "post",
                     data: formData,
-                    success: Swal.fire({
+                    success: function (response) {
+                        Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: 'Your message has sended',
                         showConfirmButton: false,
                         timer: 1500
-                    }).then(function (result) {
-                            $(".patient").val("");
-                            $(".phone").val("");
-                            $(".email").val("");
-                            $(".date").val("");
-                            $(".time").val("");
-                            $(".message").val("");
-                            $("#doctor").html(`<option value="0" selected disabled>Choose Doctor by Name</option>`);
-                            $("#department").html(`<option value="0" selected disabled>Select Department</option>
-                                                   @foreach (var item in Model.Departments)
-                                                   {
-                                                     <option class="lorem" value="@item.Id">@item.Name</option>
-                                                   }`);
-
-                    }),
-                    error: function (error) { }
-                    })
-                })
-            })
-
-
-        @*$(".add-appointment").click(function (e) {
-            e.preventDefault();
-
-            if ($(".patient").val() != "" && $(".phone").val() != "" && $(".email").val() != "" && $(".date".toString("dd.MMM.yyyy")).val() != "" && $(".time".toString("HH:dd")).val() != "" && $(".message").val() != "") {
-                let formData = new FormData();
-
-
-                formData.append("DoctorId", $("#doctor").val());
-                formData.append("Phone", $(".phone").val());
-                formData.append("PatientName", $(".patient").val());
-                formData.append("Email", $(".email").val());
-                formData.append("Date", $(".date".toString("dd.MMM.yyyy")).val());
-                formData.append("Time", $(".time".toString("HH:dd")).val());
-                formData.append("Text", $(".message").val());
-                  axios.post('/appointment/Send', formData)
-                    .then(function (response) {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Your message has sended',
-                            showConfirmButton: false,
-                            timer: 1500
                         }).then(function (result) {
                             $(".patient").val("");
                             $(".phone").val("");
@@ -242,31 +200,21 @@
                                                      <option class="lorem" value="@item.Id">@item.Name</option>
                                                    }`);
 
-                        })
                     })
-                    .catch(function (error) {
-                        alert("error");
-                        if (error.Status === 404) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Something went wrong!',
-                                footer: '<a href>Why do I have this issue?</a>'
-                            })
-                        }
-                    });
-            }
-        })*@
+                    },
+                    error: function (error) { }
+                    })
+                })
+            })
 
-        //let email = $("#email").val();
-        //function ValidateEmail(email) {
-        //    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value)) {
-        //        return (true)
-
-        //    }
-
-        //    return (false)
-        //}
-
+        $(document).ready(function () {
+            $('[type=tel]').on('change', function (e) {
+                $(e.target).val($(e.target).val().replace(/[^\d\.]/g, ''));
+            })
+            $('[type=tel]').on('keypress', function (e) {
+                keys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '+'];
+                return keys.indexOf(event.key) > -1;
+            })
+        })
     </script>
 }

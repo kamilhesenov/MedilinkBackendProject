@@ -352,3 +352,7 @@ C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\n
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_getDoctor.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs

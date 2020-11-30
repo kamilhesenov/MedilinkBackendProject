@@ -14,13 +14,13 @@ namespace Medilink_Final_Project.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager/*,RoleManager<IdentityRole> roleManager*/)
+        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            //_roleManager = roleManager;
+            _roleManager = roleManager;
         }
 
         [Route("register")]
@@ -50,19 +50,19 @@ namespace Medilink_Final_Project.Controllers
                 return View(register);
             }
 
-            //await _userManager.AddToRoleAsync(user, "Admin");
+            await _userManager.AddToRoleAsync(user, "Admin");
             await _signInManager.SignInAsync(user, true);
 
             return RedirectToAction("Index", "Home");
         }
 
-        [Route("login")]
+        
         public IActionResult Login()
         {
             return View();
         }
 
-        [Route("login")]
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel login)
         {
