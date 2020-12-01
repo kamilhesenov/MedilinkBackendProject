@@ -103,11 +103,6 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
                 return NotFound();
             }
 
-            if (homeIntro.Upload.ContentType != "image/jpeg" && homeIntro.Upload.ContentType != "image/png" && homeIntro.Upload.ContentType != "image/gif")
-            {
-                ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
-            }
-
             if (homeIntro.Upload == null)
             {
                 ModelState.AddModelError("Upload", "Şəkil məcburidir");
@@ -117,12 +112,20 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
 
                 try
                 {
-                    var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", homeIntro.Photo);
-                    _fileManager.Delete(oldFile);
+                    if(homeIntro.Upload != null)
+                    {
+                        if (homeIntro.Upload.ContentType != "image/jpeg" && homeIntro.Upload.ContentType != "image/png" && homeIntro.Upload.ContentType != "image/gif")
+                        {
+                            ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
+                        }
 
-                    var fileName = _fileManager.Upload(homeIntro.Upload, "wwwroot/uploads");
-                    homeIntro.Photo = fileName;
+                        var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", homeIntro.Photo);
+                        _fileManager.Delete(oldFile);
 
+                        var fileName = _fileManager.Upload(homeIntro.Upload, "wwwroot/uploads");
+                        homeIntro.Photo = fileName;
+                    }
+                    
                     _context.Update(homeIntro);
                     await _context.SaveChangesAsync();
                 }

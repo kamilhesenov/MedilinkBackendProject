@@ -71,18 +71,17 @@
                 </a>
                 <div id="collapsePages" class="collapse homepageitem" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" asp-controller="HomeIntroes">Home Intro</a>
-                        <a class="collapse-item" asp-controller="WelcomeHospital">Welcome Hospital</a>
-                        @*<a class="collapse-item" asp-controller="Heroes">Hero</a>
-                        <a class="collapse-item" asp-controller="HomeOurNewsItems">HomeOurNewsItem</a>
-                        <a class="collapse-item" asp-controller="HomePortfolioItems">HomePortfolioItem</a>
-                        <a class="collapse-item" asp-controller="HomeServiceItems">HomeServiceItem</a>
-                        <a class="collapse-item" asp-controller="HomeTeamTwoItems">HomeTeamTwoItem</a>
-                        <a class="collapse-item" asp-controller="Promoes">Promo</a>
-                        <a class="collapse-item" asp-controller="Settings">Setting</a>
-                        <a class="collapse-item" asp-controller="SocialLinks">SocialLink</a>
-                        <a class="collapse-item" asp-controller="TestemonialItems">TestemonialItem</a>
-                        <a class="collapse-item" asp-controller="Testimonials">Testimonial</a>*@
+                        <a class="collapse-item" asp-controller="HomeIntroes" asp-action="Index">Home Intro</a>
+                        <a class="collapse-item" asp-controller="WelcomeHospital" asp-action="Index">Welcome Hospital</a>
+                        <a class="collapse-item" asp-controller="HomeServices" asp-action="Index">Home Service</a>
+                        <a class="collapse-item" asp-controller="HomeSpecialityModern" asp-action="Index">Home Speciality Modern</a>
+                        <a class="collapse-item" asp-controller="HomeSpecialitySuccess" asp-action="Index">Home Speciality Success</a>
+                        <a class="collapse-item" asp-controller="HomeSpecialityDoctor" asp-action="Index">Home Speciality Doctor</a>
+                        <a class="collapse-item" asp-controller="HomeHealth" asp-action="Index">Home Health</a>
+                        <a class="collapse-item" asp-controller="HomeCounter" asp-action="Index">Home Counter</a>
+                        <a class="collapse-item" asp-controller="HomeTestimonial" asp-action="Index">Home Testimonial</a>
+                        <a class="collapse-item" asp-controller="HomeNew" asp-action="Index">Home New</a>
+                        <a class="collapse-item" asp-controller="HomeBrand" asp-action="Index">Home Brand</a>
                     </div>
                 </div>
             </li>
@@ -155,47 +154,47 @@
                             </div>
                         </li>
 
-                        
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
+
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
                                     </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
                                     </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
                                     </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
                         </li>
 
                         <!-- Nav Item - Messages -->
@@ -349,9 +348,15 @@
 
         })
     </script>
-
+    <style>
+        .collapse-item:hover {
+            background-color: #396CF0 !important;
+            color: #ffffff !important;
+            transition: all 0.3s ease !important;
+        }
+    </style>
 </body>
 @RenderSection("Scripts", false)
-
+@RenderSection("Style", false)
 </html>
 

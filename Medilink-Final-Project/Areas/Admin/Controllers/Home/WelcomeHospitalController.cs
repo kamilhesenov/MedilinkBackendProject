@@ -116,16 +116,6 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
                 return NotFound();
             }
 
-            if (welcome.Upload.ContentType != "image/jpeg" && welcome.Upload.ContentType != "image/png" && welcome.Upload.ContentType != "image/gif")
-            {
-                ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
-            }
-
-            if (welcome.SecondUpload.ContentType != "image/jpeg" && welcome.SecondUpload.ContentType != "image/png" && welcome.SecondUpload.ContentType != "image/gif")
-            {
-                ModelState.AddModelError("SecondUpload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
-            }
-
             if (welcome.Upload == null)
             {
                 ModelState.AddModelError("Upload", "Şəkil məcburidir");
@@ -141,19 +131,34 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
 
                 try
                 {
-                    var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", welcome.Photo);
-                    _fileManager.Delete(oldFile);
+                    if(welcome.Upload != null)
+                    {
+                        if (welcome.Upload.ContentType != "image/jpeg" && welcome.Upload.ContentType != "image/png" && welcome.Upload.ContentType != "image/gif")
+                        {
+                            ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
+                        }
+                        var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", welcome.Photo);
+                        _fileManager.Delete(oldFile);
 
-                    var secondOldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", welcome.SecondPhoto);
-                    _fileManager.Delete(secondOldFile);
+                        var fileName = _fileManager.Upload(welcome.Upload, "wwwroot/uploads");
+                        welcome.Photo = fileName;
+                    }
+                    
+                    if(welcome.SecondUpload != null)
+                    {
+                        if (welcome.SecondUpload.ContentType != "image/jpeg" && welcome.SecondUpload.ContentType != "image/png" && welcome.SecondUpload.ContentType != "image/gif")
+                        {
+                            ModelState.AddModelError("SecondUpload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
+                        }
 
-                    var fileName = _fileManager.Upload(welcome.Upload, "wwwroot/uploads");
-                    welcome.Photo = fileName;
+                        var secondOldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", welcome.SecondPhoto);
+                        _fileManager.Delete(secondOldFile);
 
-                    var secondFileName = _fileManager.Upload(welcome.SecondUpload, "wwwroot/uploads");
-                    welcome.SecondPhoto = secondFileName;
+                        var secondFileName = _fileManager.Upload(welcome.SecondUpload, "wwwroot/uploads");
+                        welcome.SecondPhoto = secondFileName;
+                    }
 
-                    _context.Update(welcome);
+                     _context.Update(welcome);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
