@@ -59,7 +59,7 @@
 
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item homeAdmin">
                 <a class="nav-link collapsed homepage d-flex justify-content-between align-items-center" href="#" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <smal>
                         <i class="fas fa-fw fa-folder"></i>
@@ -85,22 +85,40 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item aboutAdmin">
+                <a class="nav-link collapsed aboutpage d-flex justify-content-between align-items-center" href="#" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <smal>
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>About</span>
+                    </smal>
+                    <span class="about-icon">
+                        <i class="fas fa-angle-right "></i>
+                    </span>
+                </a>
+                <div id="collapsePages" class="collapse aboutpageitem" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-controller="Labaratory" asp-action="Index">Labaratory</a>
+                        <a class="collapse-item" asp-controller="AboutChooseUs" asp-action="Index">About Choose Us</a>
+                        <a class="collapse-item" asp-controller="AboutChooseUsItem" asp-action="Index">About Choose Us Item</a>
+                    </div>
+                </div>
+            </li>
 
 
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
+                <a class="nav-link" asp-controller="SocialLink" asp-action="Index">
+                    <i class="far fa-thumbs-up"></i>
+                    <span>Social Link</span>
                 </a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+                <a class="nav-link" asp-controller="Setting" asp-action="Index">
+                    <i class="far fa-address-card"></i>
+                    <span>Setting</span>
                 </a>
             </li>
 
@@ -335,7 +353,8 @@
 
     <script>
         $(document).ready(function () {
-            $(".homepage").click(function () {
+            $(".homepage").click(function (e) {
+                e.preventDefault();
                 $(".homepageitem").toggle();
                 if ($(".home-icon i").hasClass("fa-angle-right")) {
                     $(".home-icon i").removeClass("fa-angle-right").addClass("fa-angle-down");
@@ -343,7 +362,16 @@
                 else {
                     $(".home-icon i").removeClass("fa-angle-down").addClass("fa-angle-right");
                 }
-
+            })
+            $(".aboutpage").click(function (e) {
+                e.preventDefault();
+                $(".aboutpageitem").toggle();
+                if ($(".about-icon i").hasClass("fa-angle-right")) {
+                    $(".about-icon i").removeClass("fa-angle-right").addClass("fa-angle-down");
+                }
+                else {
+                    $(".about-icon i").removeClass("fa-angle-down").addClass("fa-angle-right");
+                }
             })
 
         })

@@ -107,6 +107,7 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
             {
                 ModelState.AddModelError("Upload", "Şəkil məcburidir");
             }
+
             if (ModelState.IsValid)
             {
 

@@ -104,11 +104,6 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
                 return NotFound();
             }
 
-            if (homeModern.Upload == null)
-            {
-                ModelState.AddModelError("Upload", "Şəkil məcburidir");
-            }
-
             if (ModelState.IsValid)
             {
 
