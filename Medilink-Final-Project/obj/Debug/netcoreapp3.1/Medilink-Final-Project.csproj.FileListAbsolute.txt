@@ -479,3 +479,8 @@ C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\n
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shops\Create.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shops\Edit.cshtml.g.cs
 C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shops\Delete.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Doctor\Index.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Doctor\Details.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Doctor\Create.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Doctor\Edit.cshtml.g.cs
+C:\Users\Kamil\Desktop\Medilink-Final-Project\Medilink-Final-Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Doctor\Delete.cshtml.g.cs
