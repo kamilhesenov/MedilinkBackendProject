@@ -17,14 +17,12 @@ namespace Medilink_Final_Project.Models.Appointment
         public string PatientName { get; set; }
         public string Phone { get; set; }
 
+        [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime Time { get; set; }
         public string Text { get; set; }
     }
 }

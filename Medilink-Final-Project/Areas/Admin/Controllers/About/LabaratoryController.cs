@@ -64,6 +64,11 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.About
                     ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
                 }
 
+                if (labaratory.Upload.Length > 1048576)
+                {
+                    ModelState.AddModelError("Upload", "Fayl ölcüsu maximum 1MB ola bilər");
+                }
+
             }
             if (ModelState.IsValid)
             {
@@ -114,6 +119,13 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.About
                             ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
                             return View(labaratory);
                         }
+
+                        if (labaratory.Upload.Length > 1048576)
+                        {
+                            ModelState.AddModelError("Upload", "Fayl ölcüsu maximum 1MB ola bilər");
+                            return View(labaratory);
+                        }
+
                         var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", labaratory.Photo);
                         _fileManager.Delete(oldFile);
 

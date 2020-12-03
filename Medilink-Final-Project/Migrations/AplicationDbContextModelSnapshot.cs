@@ -175,7 +175,7 @@ namespace Medilink_Final_Project.Migrations
                         .UseIdentityColumn();
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
@@ -191,9 +191,6 @@ namespace Medilink_Final_Project.Migrations
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("date");
 
                     b.HasKey("Id");
 

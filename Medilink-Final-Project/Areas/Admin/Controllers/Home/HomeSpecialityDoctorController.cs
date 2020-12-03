@@ -65,6 +65,11 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
                     ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
                 }
 
+                if (homeDoctor.Upload.Length > 1048576)
+                {
+                    ModelState.AddModelError("Upload", "Fayl ölcüsu maximum 1MB ola bilər");
+                }
+
             }
             if (ModelState.IsValid)
             {
@@ -113,6 +118,12 @@ namespace Medilink_Final_Project.Areas.Admin.Controllers.Home
                         if (homeDoctor.Upload.ContentType != "image/jpeg" && homeDoctor.Upload.ContentType != "image/png" && homeDoctor.Upload.ContentType != "image/gif")
                         {
                             ModelState.AddModelError("Upload", "Siz yalnız png,jpg və ya gif faylı yükləyə bilərsiniz");
+                            return View(homeDoctor);
+                        }
+
+                        if (homeDoctor.Upload.Length > 1048576)
+                        {
+                            ModelState.AddModelError("Upload", "Fayl ölcüsu maximum 1MB ola bilər");
                             return View(homeDoctor);
                         }
                         var oldFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", homeDoctor.Photo);

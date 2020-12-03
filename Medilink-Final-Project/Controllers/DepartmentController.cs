@@ -18,7 +18,6 @@ namespace Medilink_Final_Project.Controllers
             _context = context;
         }
 
-        [Route("department")]
         public async Task<IActionResult> Index(int page = 1,int pageSize = 4)
         {
             var items = _context.Departments.AsNoTracking().OrderBy(x => x.Id);

@@ -48,10 +48,8 @@ namespace Medilink_Final_Project.Controllers
         public IActionResult Send(AppointmentSendViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest();
-
             
-            
-               Appointment appointment = new Appointment
+            Appointment appointment = new Appointment
                     {
 
                         DoctorId = model.DoctorId,
@@ -59,7 +57,6 @@ namespace Medilink_Final_Project.Controllers
                         Phone = model.Phone,
                         Email = model.Email,
                         Date = model.Date,
-                        Time = model.Time,
                         Text = model.Text
                     };
 
@@ -69,9 +66,5 @@ namespace Medilink_Final_Project.Controllers
             return NoContent();
 
           }
-            
-             
-            
-        
     }
 }

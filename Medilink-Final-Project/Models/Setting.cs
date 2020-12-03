@@ -18,6 +18,8 @@ namespace Medilink_Final_Project.Models
         public string Phone { get; set; }
 
         [Required, MaxLength(100)]
+        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
     }

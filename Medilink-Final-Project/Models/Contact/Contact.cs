@@ -11,6 +11,7 @@ namespace Medilink_Final_Project.Models.Contact
         public int Id { get; set; }
         public string Name { get; set; }
         
+        [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Message { get; set; }

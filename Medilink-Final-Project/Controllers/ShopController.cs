@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Medilink_Final_Project.Controllers
 {
+    [Route("products")]
     public class ShopController : Controller
     {
         private readonly AplicationDbContext _context;
@@ -16,7 +17,7 @@ namespace Medilink_Final_Project.Controllers
             _context = context;
         }
 
-        [Route("products")]
+        
         public IActionResult Index(string name)
         {
             ShopViewModel model = new ShopViewModel();
